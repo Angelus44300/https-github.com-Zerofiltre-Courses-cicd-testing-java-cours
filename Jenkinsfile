@@ -16,10 +16,18 @@ node {
         stage('Checkout') {
             checkout scm
         }
-
+/*
         stage('Build with test') {
 
             sh "mvn clean install"
+        }
+*/
+
+
+        stage('Build with test') {
+            steps {
+                sh 'mvn clean install -DargLine="-Xmx512m"'
+            }
         }
 
         stage('Sonarqube Analysis') {
