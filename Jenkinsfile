@@ -17,7 +17,7 @@ node {
             checkout scm
         }
         stage('Build with test') {
-                sh 'mvn clean install -DargLine="-Xmx512m" -Duser.language=en -Duser.country=US'
+                             sh 'LANG=C.UTF-8 LC_ALL=C.UTF-8 mvn clean install -DargLine="-Xmx512m"'
         }
         stage('Sonarqube Analysis') {
             withSonarQubeEnv('localhost_sonarqube') {
