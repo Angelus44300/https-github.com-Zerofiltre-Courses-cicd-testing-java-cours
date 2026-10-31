@@ -16,20 +16,9 @@ node {
         stage('Checkout') {
             checkout scm
         }
-/*
         stage('Build with test') {
-
-            sh "mvn clean install"
+            sh 'mvn clean install -DargLine="-Xmx512m"'
         }
-*/
-
-
-        stage('Build with test') {
-            steps {
-                sh 'mvn clean install -DargLine="-Xmx512m"'
-            }
-        }
-
         stage('Sonarqube Analysis') {
             withSonarQubeEnv('localhost_sonarqube') {
                 sh " mvn sonar:sonar -Dintegration-tests.skip=true -Dmaven.test.failure.ignore=true"
