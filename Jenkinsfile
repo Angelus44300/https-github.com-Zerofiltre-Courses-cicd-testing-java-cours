@@ -21,7 +21,7 @@ node {
         }
         stage('Sonarqube Analysis') {
             withSonarQubeEnv('localhost_sonarqube') {
-                sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dintegration-tests.skip=true -Dmaven.test.failure.ignore=true'
+                sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dintegration-tests.skip=true -Dmaven.test.failure.ignore=true -Dsonar.ws.timeout=300'
 
             }
             timeout(time: 1, unit: 'MINUTES') {
