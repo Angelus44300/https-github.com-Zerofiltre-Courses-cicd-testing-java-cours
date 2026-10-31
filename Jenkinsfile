@@ -21,7 +21,8 @@ node {
         }
         stage('Sonarqube Analysis') {
             withSonarQubeEnv('localhost_sonarqube') {
-                sh " mvn sonar:sonar -Dintegration-tests.skip=true -Dmaven.test.failure.ignore=true"
+                sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dintegration-tests.skip=true -Dmaven.test.failure.ignore=true'
+
             }
             timeout(time: 1, unit: 'MINUTES') {
                 def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
