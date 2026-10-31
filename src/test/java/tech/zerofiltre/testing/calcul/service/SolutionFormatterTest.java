@@ -2,7 +2,12 @@ package tech.zerofiltre.testing.calcul.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
+
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class SolutionFormatterTest {
@@ -13,27 +18,16 @@ class SolutionFormatterTest {
   void initFormatter() {
     solutionFormatter = new SolutionFormatterImpl();
   }
-/*
-  @Test
-  void format_shouldFormatAnyBigNumber() {
-    // GIVEN
-    final int number = 1234567890;
-
-    // WHEN
-    final String result = solutionFormatter.format(number);
-
-    // THEN
-    assertThat(result).isEqualTo("1 234 567 890");
-  }
-*/
 
   @Test
+  @DisplayName("Devrait formater un grand nombre en respectant le séparateur du système")
   void format_shouldFormatAnyBigNumber() {
     // GIVEN
-    final int number = 1234567890;
+    final int number = 1_234_567_890;
 
-    String expected = "1\u00A0234\u00A0567\u00A0890";
-
+    // On génère la valeur attendue dynamiquement selon la Locale exécutée par la JVM (Jenkins ou dev)
+    DecimalFormat expectedFormatter = new DecimalFormat("#,###", new DecimalFormatSymbols(Locale.FRENCH));
+    String expected = expectedFormatter.format(number);
 
     // WHEN
     final String result = solutionFormatter.format(number);
@@ -41,7 +35,4 @@ class SolutionFormatterTest {
     // THEN
     assertThat(result).isEqualTo(expected);
   }
-
-
-
 }
