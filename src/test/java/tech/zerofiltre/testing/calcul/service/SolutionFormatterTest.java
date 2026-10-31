@@ -13,7 +13,7 @@ class SolutionFormatterTest {
   void initFormatter() {
     solutionFormatter = new SolutionFormatterImpl();
   }
-
+/*
   @Test
   void format_shouldFormatAnyBigNumber() {
     // GIVEN
@@ -23,7 +23,25 @@ class SolutionFormatterTest {
     final String result = solutionFormatter.format(number);
 
     // THEN
-    assertThat(result).isEqualTo("1 234 567 890");
+    assertThat(result).isEqualTo("1 234 567 890");
   }
+*/
+
+  @Test
+  void format_shouldFormatAnyBigNumber() {
+    // GIVEN
+    final int number = 1234567890;
+
+    String expected = "1\u00A0234\u00A0567\u00A0890";
+
+
+    // WHEN
+    final String result = solutionFormatter.format(number);
+
+    // THEN
+    assertThat(result).isEqualTo(expected);
+  }
+
+
 
 }
