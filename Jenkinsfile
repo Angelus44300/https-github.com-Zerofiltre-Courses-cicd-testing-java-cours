@@ -24,7 +24,7 @@ node {
                 sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dintegration-tests.skip=true -Dmaven.test.failure.ignore=true -Dsonar.ws.timeout=300'
 
             }
-            timeout(time: 1, unit: 'MINUTES') {
+            timeout(time: 300, unit: 'MINUTES') {
                 def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
                 if (qg.status != 'OK') {
                     error "Pipeline aborted due to quality gate failure: ${qg.status}"
