@@ -1,0 +1,182 @@
+databaseChangeLog:
+- changeSet:
+    id: 1793904877388-1
+    author: ubuntu (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+            name: id
+            type: INT
+        - column:
+            name: formatted_solution
+            type: VARCHAR(255)
+        - column:
+            name: left_argument
+            type: INT
+        - column:
+            name: right_argument
+            type: INT
+        - column:
+            name: solution
+            type: INT
+        - column:
+            name: type
+            type: INT
+        tableName: calculation_model
+- changeSet:
+    id: 1793904877388-2
+    author: ubuntu (generated)
+    changes:
+    - insert:
+        columns:
+        - column:
+            name: id
+            valueNumeric: 1
+        - column:
+            name: formatted_solution
+            value: '900'
+        - column:
+            name: left_argument
+            valueNumeric: 845
+        - column:
+            name: right_argument
+            valueNumeric: 55
+        - column:
+            name: solution
+            valueNumeric: 900
+        - column:
+            name: type
+            valueNumeric: 0
+        tableName: calculation_model
+    - insert:
+        columns:
+        - column:
+            name: id
+            valueNumeric: 2
+        - column:
+            name: formatted_solution
+            value: '20'
+        - column:
+            name: left_argument
+            valueNumeric: 24
+        - column:
+            name: right_argument
+            valueNumeric: 4
+        - column:
+            name: solution
+            valueNumeric: 20
+        - column:
+            name: type
+            valueNumeric: 3
+        tableName: calculation_model
+    - insert:
+        columns:
+        - column:
+            name: id
+            valueNumeric: 3
+        - column:
+            name: formatted_solution
+            value: '33'
+        - column:
+            name: left_argument
+            valueNumeric: 33
+        - column:
+            name: right_argument
+            valueNumeric: 1
+        - column:
+            name: solution
+            valueNumeric: 33
+        - column:
+            name: type
+            valueNumeric: 1
+        tableName: calculation_model
+    - insert:
+        columns:
+        - column:
+            name: id
+            valueNumeric: 4
+        - column:
+            name: formatted_solution
+            value: '33'
+        - column:
+            name: left_argument
+            valueNumeric: 33
+        - column:
+            name: right_argument
+            valueNumeric: 1
+        - column:
+            name: solution
+            valueNumeric: 33
+        - column:
+            name: type
+            valueNumeric: 1
+        tableName: calculation_model
+    - insert:
+        columns:
+        - column:
+            name: id
+            valueNumeric: 5
+        - column:
+            name: formatted_solution
+            value: '33'
+        - column:
+            name: left_argument
+            valueNumeric: 33
+        - column:
+            name: right_argument
+            valueNumeric: 0
+        - column:
+            name: solution
+            valueNumeric: 33
+        - column:
+            name: type
+            valueNumeric: 0
+        tableName: calculation_model
+    - insert:
+        columns:
+        - column:
+            name: id
+            valueNumeric: 6
+        - column:
+            name: formatted_solution
+            value: '50'
+        - column:
+            name: left_argument
+            valueNumeric: 75
+        - column:
+            name: right_argument
+            valueNumeric: 25
+        - column:
+            name: solution
+            valueNumeric: 50
+        - column:
+            name: type
+            valueNumeric: 3
+        tableName: calculation_model
+    - insert:
+        columns:
+        - column:
+            name: id
+            valueNumeric: 7
+        - column:
+            name: formatted_solution
+            value: '146'
+        - column:
+            name: left_argument
+            valueNumeric: 5874
+        - column:
+            name: right_argument
+            valueNumeric: 40
+        - column:
+            name: solution
+            valueNumeric: 146
+        - column:
+            name: type
+            valueNumeric: 2
+        tableName: calculation_model
+

@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>tech.zerofiltre.testing</groupId>
   <artifactId>calculator</artifactId>
@@ -17,16 +17,14 @@
       **/domain/**/*.java,
       src/test/java/*.java
     </sonar.coverage.exclusions>
-
     <hibernate.version>5.4.24.Final</hibernate.version>
-    <liquibase-core.version>4.2.0</liquibase-core.version>
-    <liquibase-maven-plugin.version>4.2.0</liquibase-maven-plugin.version>
-    <liquibase-hibernate5.version>4.1.1</liquibase-hibernate5.version>
+    <liquibase-core.version>4.3.5</liquibase-core.version>
+    <liquibase-maven-plugin.version>4.3.5</liquibase-maven-plugin.version>
+    <liquibase-hibernate5.version>4.3.5</liquibase-hibernate5.version>
     <validation-api.version>2.0.1.Final</validation-api.version>
     <javassist.version>3.27.0-GA</javassist.version>
     <jaxb-api.version>2.4.0-b180830.0359</jaxb-api.version>
     <maven.build.timestamp.format>yyyy-MM-dd_HH-mm</maven.build.timestamp.format>
-
   </properties>
 
   <parent>
@@ -151,7 +149,6 @@
     </profile>
   </profiles>
 
-
   <build>
     <finalName>calculator</finalName>
     <plugins>
@@ -181,7 +178,6 @@
               <goal>prepare-agent</goal>
             </goals>
           </execution>
-          <!-- attached to Maven test phase -->
           <execution>
             <id>report</id>
             <phase>test</phase>
@@ -205,6 +201,11 @@
           <logging>info</logging>
         </configuration>
         <dependencies>
+          <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.23</version>
+          </dependency>
           <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
